@@ -13,7 +13,7 @@ import Home from "./home/pages/Home";
 import Carrito from "./carrito/pages/Carrito";
 import Header from "./shared/Header";
 import SistemaVentas from "./ventas/pages/SistemaVentas";
-
+import Usuarios from "./usuarios/pages/Usuarios";
 
 function App() {
   const [logged, setLogged] = useState(false);
@@ -38,6 +38,9 @@ function App() {
         </Route>
         <Route path="/SistemaVentas">
           <SistemaVentas/>
+        </Route>
+        <Route path="/Usuarios">
+          <Usuarios/>
         </Route>
         <Redirect to="/" />
       </Switch>

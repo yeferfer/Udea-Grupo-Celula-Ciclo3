@@ -5,7 +5,7 @@ import Badge from "react-bootstrap/Badge";
 
 import { Link } from "react-router-dom";
 
-const HeaderButtons = ({ isLoggedIn, setLogin, cantCarrito }) => {
+const HeaderButtons = ({ isLoggedIn, setLogin, cantCarrito, }) => {
   const login = () => {
     setLogin(true);
   };
@@ -14,9 +14,19 @@ const HeaderButtons = ({ isLoggedIn, setLogin, cantCarrito }) => {
     setLogin(false);
   };
 
+  
+
   if (isLoggedIn) {
     return (
+      
       <React.Fragment>
+        <Link to ="/Usuarios">
+          <Button variant="primary" className="me-3">
+            Usuarios
+          </Button>
+          </Link>
+
+
         <Link to="/SistemaVentas">
           <Button variant="primary" className="me-3">
             Ventas 
@@ -40,7 +50,10 @@ const HeaderButtons = ({ isLoggedIn, setLogin, cantCarrito }) => {
         <Button variant="light" onClick={login}>
           Login
         </Button>
-      </div>
+          </div>
+      
+        
+   
     );
   }
 };
