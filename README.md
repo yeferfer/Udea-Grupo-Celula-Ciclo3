@@ -29,22 +29,7 @@ MEMBERS
 SPRINTS
 
 - [x] SPRINT 1
-- [ ] SPRINT 2
-    - [x] USER STORY (HU__005)
-    - [x] USER STORY (HU__006)
-    - [x] USER STORY (HU__007)
-    - [x] USER STORY (HU__008)
-    - [x] USER STORY (HU__009)
-    - [x] USER STORY (HU__010)
-    - [x] USER STORY (HU__011)
-    - [x] USER STORY (HU__012)
-    - [x] USER STORY (HU__013)
-    - [x] USER STORY (HU__014)
-    - [x] USER STORY (HU__015)
-    - [x] USER STORY (HU__016)
-    - [x] USER STORY (HU__017)
-    - [x] USER STORY (HU__018)
-    - [x] USER STORY (HU__019)
-    - [x] USER STORY (HU__020)
+- [x] SPRINT 2
+- [ ] SPRINT 3
 
 
