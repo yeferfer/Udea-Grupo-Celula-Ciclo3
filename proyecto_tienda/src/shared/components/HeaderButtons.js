@@ -50,6 +50,18 @@ const HeaderButtons = ({ isLoggedIn, setLogin, cantCarrito }) => {
           </Button>
         </Link>
 
+        <Link to="/GestorProductos">
+          <Button variant="danger" className="me-3">
+            Gestor Productos
+          </Button>
+        </Link>
+
+        <Link to="/ProductosDisponibles">
+          <Button variant="danger" className="me-3">
+            Productos
+          </Button>
+        </Link>
+
 
         <Link to="/">
           <Button variant="danger" onClick={logout}>
