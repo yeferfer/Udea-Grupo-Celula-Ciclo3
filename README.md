@@ -1,6 +1,6 @@
 ### CÉLULA CICLO 3 🦠👩‍💻🧑‍💻👨‍💻👩‍💻👨‍💻🦠
 
-THIS REPOSITORY HAS THE CODE OF A " I  DONT KNOW WHAT TO SAY HERE" WAS CREATED FOR THE PURPOSE OF BETTER TEAMWORK. HERE LIES ALL THE WORK OF TEAM CÉLULA CICLO 3 OF MISION TIC. 
+IN THIS REPOSITORY WE CAN SEE THE WORK CARRIED OUT BY THE CÉLULA CICLO 3 MISSION TIC TEAM. HERE WE MAKE A WEB APPLICATION WITH THE HELP OF VARIOUS TOOLS AS DESCRIBED IN THE BOTTOM PART ("LANGUAGES"). WE HOPE YOU LIKE IT. 😊🐱‍💻 
 
 ![](IMAGE/LogoGrupo.png)
 
@@ -30,13 +30,21 @@ SPRINTS
 
 - [x] SPRINT 1
 - [ ] SPRINT 2
-    - [ ] USER STORY (N)
-    - [ ] USER STORY (N)
-- [ ] SPRINT 3
-    - [ ] USER STORY (N)
-    - [ ] USER STORY (N)
-    - [ ] USER STORY (N)
-- [ ] SPRINT 4
-    - [ ] USER STORY (N)
-    - [ ] USER STORY (N)
+    - [x] USER STORY (HU__005)
+    - [x] USER STORY (HU__006)
+    - [x] USER STORY (HU__007)
+    - [x] USER STORY (HU__008)
+    - [x] USER STORY (HU__009)
+    - [x] USER STORY (HU__010)
+    - [x] USER STORY (HU__011)
+    - [x] USER STORY (HU__012)
+    - [x] USER STORY (HU__013)
+    - [x] USER STORY (HU__014)
+    - [x] USER STORY (HU__015)
+    - [x] USER STORY (HU__016)
+    - [x] USER STORY (HU__017)
+    - [x] USER STORY (HU__018)
+    - [x] USER STORY (HU__019)
+    - [x] USER STORY (HU__020)
+
 
