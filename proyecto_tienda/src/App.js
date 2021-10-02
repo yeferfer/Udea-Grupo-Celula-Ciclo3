@@ -11,13 +11,21 @@ import React, { useState } from "react";
 
 import Home from "./home/pages/Home";
 import Carrito from "./carrito/pages/Carrito";
-import Header from "./shared/Header";
 import SistemaVentas from "./ventas/pages/SistemaVentas";
+<<<<<<< HEAD
 import Usuarios from "./usuarios/pages/Usuarios";
+=======
+import VentasRealizadas from "./ventas/pages/VentasRealizadas";
+import Header from "./shared/Header";
+
+
+>>>>>>> 017d56eb823a78292b322d4ea23c75865cc56348
 
 function App() {
   const [logged, setLogged] = useState(false);
   const [carrito, setCarrito] = useState([]);
+  const [ventasrealizadas, setventasrealizadas] = useState([]); 
+  const [sistemaVentas, setsistemaVentas] = useState([]);
 
   return (
     <Router>
@@ -33,15 +41,33 @@ function App() {
         <Route path="/" exact>
           <Home isLoggedIn={logged} carrito={carrito} setCarrito={setCarrito} />
         </Route>
+        
         <Route path="/Carrito" exact>
           <Carrito carrito={carrito} setCarrito={setCarrito} />
         </Route>
-        <Route path="/SistemaVentas">
-          <SistemaVentas/>
+
+        <Route path="/" exact>
+          <Home isLoggedIn={logged} sistemaVentas={sistemaVentas} setsistemaVentas={setsistemaVentas} />
         </Route>
+        
+        <Route path="/SistemaVentas" exact>
+          <SistemaVentas sistemaVentas={sistemaVentas} setsistemaVentas={setsistemaVentas} />
+        </Route>
+
+        <Route path="/" exact>
+          <Home isLoggedIn={logged} ventasrealizadas={ventasrealizadas} setventasrealizadas={setventasrealizadas} />
+        </Route>
+        
+        <Route path="/VentasRealizadas" exact>
+          <VentasRealizadas ventasrealizadas={ventasrealizadas} setventasrealizadas={setventasrealizadas} />
+        </Route>
+<<<<<<< HEAD
         <Route path="/Usuarios">
           <Usuarios/>
         </Route>
+=======
+       
+>>>>>>> 017d56eb823a78292b322d4ea23c75865cc56348
         <Redirect to="/" />
       </Switch>
     </Router>
