@@ -13,6 +13,7 @@ import Home from "./home/pages/Home";
 import Carrito from "./carrito/pages/Carrito";
 import SistemaVentas from "./ventas/pages/SistemaVentas";
 import VentasRealizadas from "./ventas/pages/VentasRealizadas";
+import HomeLogin from "./home/pages/HomeLogin";
 import Header from "./shared/Header";
 
 
@@ -22,6 +23,7 @@ function App() {
   const [carrito, setCarrito] = useState([]);
   const [ventasrealizadas, setventasrealizadas] = useState([]); 
   const [sistemaVentas, setsistemaVentas] = useState([]);
+  const [homeLogin, sethomeLogin] = useState([]);
 
   return (
     <Router>
@@ -56,6 +58,14 @@ function App() {
         
         <Route path="/VentasRealizadas" exact>
           <VentasRealizadas ventasrealizadas={ventasrealizadas} setventasrealizadas={setventasrealizadas} />
+        </Route>
+
+        <Route path="/" exact>
+          <Home isLoggedIn={logged} homeLogin={homeLogin} sethomeLogin={sethomeLogin} />
+        </Route>
+        
+        <Route path="/HomeLogin" exact>
+          <HomeLogin homeLogin={homeLogin} sethomeLogin={sethomeLogin} />
         </Route>
        
         <Redirect to="/" />

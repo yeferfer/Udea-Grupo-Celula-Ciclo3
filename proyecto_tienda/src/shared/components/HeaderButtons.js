@@ -62,9 +62,11 @@ const HeaderButtons = ({ isLoggedIn, setLogin, cantCarrito }) => {
   } else {
     return (
       <div>
+        <Link to="/HomeLogin">
         <Button variant="danger" onClick={login}>
           Login
         </Button>
+        </Link>
       </div>
     );
   }
