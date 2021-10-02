@@ -24,6 +24,7 @@ function App() {
   const [carrito, setCarrito] = useState([]);
   const [ventasrealizadas, setventasrealizadas] = useState([]); 
   const [sistemaVentas, setsistemaVentas] = useState([]);
+  
 
   return (
     <Router>
