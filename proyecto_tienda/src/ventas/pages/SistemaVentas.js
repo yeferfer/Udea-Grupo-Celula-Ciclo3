@@ -3,7 +3,8 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { Container, Row, Col } from "react-bootstrap";
 
-const CrearProducto = () => {
+
+const SistemaVentas = () => {
     const categorias = [
         { id: 1, nombre: "Moderno" },
         { id: 2, nombre: "Informal" },
@@ -31,6 +32,11 @@ const CrearProducto = () => {
                 <Row className="d-flex justify-content-center align-items-center">
                     <Col xs={6}>
                         <Form>
+                        <Form.Group className="mb-3" controlId="formBasicEmail">
+                                <Form.Label>Fecha Venta</Form.Label>
+                                <Form.Control type="date" id="form"/>
+                            </Form.Group>
+
                             <Form.Group className="mb-3" controlId="formBasicEmail">
                                 <Form.Label>Nombre del producto</Form.Label>
                                 <Form.Control type="text" />
@@ -48,6 +54,11 @@ const CrearProducto = () => {
 
                             <Form.Group className="mb-3" controlId="formBasicEmail">
                                 <Form.Label>Descripción</Form.Label>
+                                <Form.Control type="text" />
+                            </Form.Group>
+                            
+                            <Form.Group className="mb-3" controlId="formBasicEmail">
+                                <Form.Label>Sucursal</Form.Label>
                                 <Form.Control type="text" />
                             </Form.Group>
 
@@ -90,4 +101,4 @@ const CrearProducto = () => {
     );
 };
 
-export default CrearProducto;
+export default SistemaVentas;
