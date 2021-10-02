@@ -12,6 +12,7 @@ import React, { useState } from "react";
 import Home from "./home/pages/Home";
 import Carrito from "./carrito/pages/Carrito";
 import SistemaVentas from "./ventas/pages/SistemaVentas";
+import Usuarios from "./usuarios/pages/Usuarios";
 import VentasRealizadas from "./ventas/pages/VentasRealizadas";
 import HomeLogin from "./home/pages/HomeLogin";
 import Header from "./shared/Header";
@@ -58,14 +59,6 @@ function App() {
         
         <Route path="/VentasRealizadas" exact>
           <VentasRealizadas ventasrealizadas={ventasrealizadas} setventasrealizadas={setventasrealizadas} />
-        </Route>
-
-        <Route path="/" exact>
-          <Home isLoggedIn={logged} homeLogin={homeLogin} sethomeLogin={sethomeLogin} />
-        </Route>
-        
-        <Route path="/HomeLogin" exact>
-          <HomeLogin homeLogin={homeLogin} sethomeLogin={sethomeLogin} />
         </Route>
        
         <Redirect to="/" />
