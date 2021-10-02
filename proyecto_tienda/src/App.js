@@ -14,6 +14,8 @@ import Carrito from "./carrito/pages/Carrito";
 import SistemaVentas from "./ventas/pages/SistemaVentas";
 import VentasRealizadas from "./ventas/pages/VentasRealizadas";
 import Header from "./shared/Header";
+import GestorProductos from "./productos/pages/GestorProductos";
+import ProductosDisponibles from "./productos/pages/ProductosDisponibles";
 
 
 
@@ -57,6 +59,16 @@ function App() {
         <Route path="/VentasRealizadas" exact>
           <VentasRealizadas ventasrealizadas={ventasrealizadas} setventasrealizadas={setventasrealizadas} />
         </Route>
+
+        <Route path="/GestorProductos" exact>
+          <GestorProductos/>
+        </Route>
+
+        <Route path="/ProductosDisponibles" exact>
+          <ProductosDisponibles/>
+        </Route>
+
+        
        
         <Redirect to="/" />
       </Switch>
