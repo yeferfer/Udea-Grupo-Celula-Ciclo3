@@ -21,14 +21,12 @@ const HeaderButtons = ({ isLoggedIn, setLogin, cantCarrito, }) => {
     return (
       
       <React.Fragment>
-<<<<<<< HEAD
         <Link to ="/Usuarios">
           <Button variant="primary" className="me-3">
             Usuarios
           </Button>
           </Link>
 
-=======
 
         {/* <Dropdown>
           <Dropdown.Toggle variant="danger" id="dropdown-basic">
@@ -41,7 +39,6 @@ const HeaderButtons = ({ isLoggedIn, setLogin, cantCarrito, }) => {
             <Dropdown.Item href="#/action-3">Modificar Venta</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown> */}
->>>>>>> 017d56eb823a78292b322d4ea23c75865cc56348
 
         <Link to="/SistemaVentas">
           <Button variant="danger" className="me-3">

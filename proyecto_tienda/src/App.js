@@ -12,14 +12,11 @@ import React, { useState } from "react";
 import Home from "./home/pages/Home";
 import Carrito from "./carrito/pages/Carrito";
 import SistemaVentas from "./ventas/pages/SistemaVentas";
-<<<<<<< HEAD
 import Usuarios from "./usuarios/pages/Usuarios";
-=======
 import VentasRealizadas from "./ventas/pages/VentasRealizadas";
 import Header from "./shared/Header";
 
 
->>>>>>> 017d56eb823a78292b322d4ea23c75865cc56348
 
 function App() {
   const [logged, setLogged] = useState(false);
@@ -61,13 +58,10 @@ function App() {
         <Route path="/VentasRealizadas" exact>
           <VentasRealizadas ventasrealizadas={ventasrealizadas} setventasrealizadas={setventasrealizadas} />
         </Route>
-<<<<<<< HEAD
         <Route path="/Usuarios">
           <Usuarios/>
         </Route>
-=======
        
->>>>>>> 017d56eb823a78292b322d4ea23c75865cc56348
         <Redirect to="/" />
       </Switch>
     </Router>
