@@ -16,6 +16,7 @@ import VentasRealizadas from "./ventas/pages/VentasRealizadas";
 import Header from "./shared/Header";
 import GestorProductos from "./productos/pages/GestorProductos";
 import ProductosDisponibles from "./productos/pages/ProductosDisponibles";
+import Usuarios from "./usuarios/pages/Usuarios";
 
 
 
@@ -67,6 +68,10 @@ function App() {
 
         <Route path="/ProductosDisponibles" exact>
           <ProductosDisponibles/>
+        </Route>
+
+        <Route path="/Usuarios" exact>
+          <Usuarios/>
         </Route>
 
         
