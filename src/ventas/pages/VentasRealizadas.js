@@ -12,10 +12,12 @@ const VentasRealizadas = () => {
                     <th scope="col">#</th>
                     <th scope="col">Fecha Venta</th>
                     <th scope="col">Producto</th>
+                    <th scope="col">Referencia</th>
                     <th scope="col">Precio</th>
+                    <th scope="col">Descripcion</th>
+                    <th scope="col">Sucursal</th>
                     <th scope="col">Vendedor</th>
                     <th scope="col">Categoria</th>
-                    <th scope="col">Sucursal</th>
                 </tr>
             </thead>
             <tbody>
