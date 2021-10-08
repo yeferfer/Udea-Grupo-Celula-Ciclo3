@@ -1,26 +1,39 @@
-import Nav from 'react-bootstrap/Nav';
-import NavDropdown from 'react-bootstrap/NavDropdown'
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import TablaGestorUsuario from './TablaGestorUsuario';
+import {useState} from "react"
+import CrearUsuario from './CrearUsuario';
 
 const Usuarios = () => {
-return(
-    <Nav justify variant="tabs" defaultActiveKey="/Nav.Link">
+  const [tab,setTab ] = useState('CrearUsuario')
+  function changetab (name) 
   
-  <Nav.Item>
-    <Nav.Link eventKey="link-1">Listar Usuario</Nav.Link>
-  </Nav.Item>
-  <Nav.Item>
-    <Nav.Link eventKey="link-2">Activar Usuario</Nav.Link>
-  </Nav.Item>
-  <Nav.Item>
-    <Nav.Link eventKey="disabled" enable>
-      Desactivar Usuario
-    </Nav.Link>
-  </Nav.Item>
-  <NavDropdown title="Crear Usuario" id="nav-dropdown">
-        <NavDropdown.Item eventKey="4.1">Vendedor</NavDropdown.Item>
-        <NavDropdown.Item eventKey="4.2">Administrador</NavDropdown.Item>
-        </NavDropdown>
-</Nav>
+  {
+    setTab(name)
+ }
+
+return(
+<> 
+
+<nav className="navbar navbar-expand-lg navbar-light bg-light">
+  <div className="container-fluid">
+
+      <div className="collapse navbar-collapse" id="navbarNav">
+      <ul className="navbar-nav">
+        <li className="nav-item">
+          <p className="nav-link active" onClick = {()=>changetab('CrearUsuario')} >Crear Usuarios</p>
+        </li>
+   
+        <li className="nav-item">
+          <p  className="nav-link"onClick = {()=>changetab('GestorUsuario')} >Listar </p>
+        </li>
+       
+      </ul>
+    </div>
+  </div>
+</nav>
+{tab=='GestorUsuario'? <TablaGestorUsuario/>:null}
+{tab=='CrearUsuario'? <CrearUsuario/>:null}
+</>
     );  
 }
 export default Usuarios;
