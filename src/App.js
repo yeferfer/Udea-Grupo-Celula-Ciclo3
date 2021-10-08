@@ -17,6 +17,8 @@ import Header from "./shared/Header";
 import GestorProductos from "./productos/pages/GestorProductos";
 import ProductosDisponibles from "./productos/pages/ProductosDisponibles";
 import Usuarios from "./usuarios/pages/Usuarios";
+import TablaGestorUsuario from "./usuarios/pages/TablaGestorUsuario";
+import CrearUsuario from "./usuarios/pages/CrearUsuario"
 
 
 
@@ -74,6 +76,13 @@ function App() {
           <Usuarios/>
         </Route>
 
+        <Route path="/TablaGestorUsuario" exact>
+          <TablaGestorUsuario/>
+        </Route>
+
+        <Route path="/CrearUsuario" exact>
+          <CrearUsuario/>
+        </Route>
         
        
         <Redirect to="/" />

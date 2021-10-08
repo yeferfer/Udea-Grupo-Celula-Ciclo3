@@ -86,7 +86,7 @@ const SistemaVentas = () => {
                             </Button>
                             <Button
                                 type="button"
-                                variant="primary"
+                                variant="danger"
                                 className="float-end"
                             >
                                 Registrar Venta
