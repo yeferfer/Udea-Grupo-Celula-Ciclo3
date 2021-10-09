@@ -1,5 +1,5 @@
 var express = require('express');
-var mongoose = require('mongoose')
+var mongoose = require('mongoose');
 var app = express(); 
 
 const productsRoutes = require("./routes/products")
@@ -9,7 +9,7 @@ const usuariosRoutes = require("./routes/usuarios")
 app.use(express.json()); //
 app.use(express.urlencoded({ extended: false }));
 
-mongoose.connect("mongodb+srv://admin:adminEdi8626@cluster0.5baab.mongodb.net/myFirstDatabase?retryWrites=true&w=majority").then(() => {
+mongoose.connect("mongodb+srv://user:1234@cluster0.wstj5.mongodb.net/QPies?retryWrites=true&w=majority").then(() => {
     console.log("Conectado")
 });
 
