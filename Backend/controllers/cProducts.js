@@ -1,7 +1,6 @@
 const Producto = require('../models/mProducts');
 
 exports.getProducts =  (req,res) => {
-/// Aca van todas las funciones a utilizar como la multiplicacion con postman q trabajamos. Tambien la conexion a la base de datos
     Producto.find().then((productoResult)=>{
         res.status(200).json(productoResult);
     });
@@ -28,7 +27,13 @@ exports.getProductId =  (req, res) => {
         if(productoResult){
             res.status(200).json(productoResult);
         }else{
-            res.status(404).json("No Encontrado")
+            res.status(404).json("No Encontrado");
         }
     });
-}
+};
+
+exports.getProductosDisponibles =(req, res)=>{
+    Producto.find({disponible:true}).then((productoResult)=>{
+        res.status(200).json(productoResult);
+    });
+};

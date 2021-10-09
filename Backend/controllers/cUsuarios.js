@@ -1,5 +1,7 @@
+const Usuarios = require('../models/mUsuarios');
+
 exports.getUsuarios =  (req,res) => {
-    /// Aca van todas las funciones a utilizar como la multiplicacion con postman q trabajamos
-    
-    
-    }
+    Usuarios.find().then((usuarioResult) => {
+        res.status(200).json(usuarioResult);
+    })
+}
