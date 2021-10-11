@@ -9,16 +9,17 @@ import { Link } from "react-router-dom";
 const HeaderButtons = ({ isLoggedIn, setLogin, cantCarrito }) => {
   const login = () => {
     setLogin(true);
+    localStorage.setItem("isLogged", true);
   };
 
   const logout = () => {
     setLogin(false);
+    localStorage.setItem("isLogged", false);
   };
 
   if (isLoggedIn) {
     return (
       <React.Fragment>
-
         {/* <Dropdown>
           <Dropdown.Toggle variant="danger" id="dropdown-basic">
             Venticas
@@ -42,7 +43,6 @@ const HeaderButtons = ({ isLoggedIn, setLogin, cantCarrito }) => {
             Carrito <Badge bg="primary">{cantCarrito}</Badge>
           </Button>
         </Link> */}
-
 
         <Link to="/VentasRealizadas">
           <Button variant="danger" className="me-3">
@@ -68,14 +68,12 @@ const HeaderButtons = ({ isLoggedIn, setLogin, cantCarrito }) => {
           </Button>
         </Link>
 
-
         <Link to="/">
           <Button variant="danger" onClick={logout}>
             Logout
           </Button>
         </Link>
       </React.Fragment>
-
     );
   } else {
     return (

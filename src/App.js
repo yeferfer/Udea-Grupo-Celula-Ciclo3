@@ -12,22 +12,31 @@ import React, { useState } from "react";
 import Home from "./home/pages/Home";
 import Carrito from "./carrito/pages/Carrito";
 import SistemaVentas from "./ventas/pages/SistemaVentas";
+import CrearProducto from "./productos/pages/CrearProducto";
 import VentasRealizadas from "./ventas/pages/VentasRealizadas";
 import Header from "./shared/Header";
 import GestorProductos from "./productos/pages/GestorProductos";
 import ProductosDisponibles from "./productos/pages/ProductosDisponibles";
 import Usuarios from "./usuarios/pages/Usuarios";
 import TablaGestorUsuario from "./usuarios/pages/TablaGestorUsuario";
-import CrearUsuario from "./usuarios/pages/CrearUsuario"
-
-
+import CrearUsuario from "./usuarios/pages/CrearUsuario";
+import api from "./api";
+import { useEffect } from "react";
 
 function App() {
   const [logged, setLogged] = useState(false);
   const [carrito, setCarrito] = useState([]);
-  const [ventasrealizadas, setventasrealizadas] = useState([]); 
+  const [ventasrealizadas, setventasrealizadas] = useState([]);
   const [sistemaVentas, setsistemaVentas] = useState([]);
-  
+  const [productos, setProductos] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await api.products.list();
+      setProductos(response);
+    };
+    fetchData();
+  }, []);
 
   return (
     <Router>
@@ -41,50 +50,72 @@ function App() {
       />
       <Switch>
         <Route path="/" exact>
-          <Home isLoggedIn={logged} carrito={carrito} setCarrito={setCarrito} />
+          <Home
+            isLoggedIn={logged}
+            carrito={carrito}
+            setCarrito={setCarrito}
+            productos={productos}
+          />
         </Route>
-        
+
         <Route path="/Carrito" exact>
           <Carrito carrito={carrito} setCarrito={setCarrito} />
         </Route>
 
-        <Route path="/" exact>
-          <Home isLoggedIn={logged} sistemaVentas={sistemaVentas} setsistemaVentas={setsistemaVentas} />
-        </Route>
-        
-        <Route path="/SistemaVentas" exact>
-          <SistemaVentas sistemaVentas={sistemaVentas} setsistemaVentas={setsistemaVentas} />
+        <Route path="/CrearProducto">
+          <CrearProducto productos={productos} setProductos={setProductos} />
         </Route>
 
         <Route path="/" exact>
-          <Home isLoggedIn={logged} ventasrealizadas={ventasrealizadas} setventasrealizadas={setventasrealizadas} />
+          <Home
+            isLoggedIn={logged}
+            sistemaVentas={sistemaVentas}
+            setsistemaVentas={setsistemaVentas}
+          />
         </Route>
-        
+
+        <Route path="/SistemaVentas" exact>
+          <SistemaVentas
+            sistemaVentas={sistemaVentas}
+            setsistemaVentas={setsistemaVentas}
+          />
+        </Route>
+
+        <Route path="/" exact>
+          <Home
+            isLoggedIn={logged}
+            ventasrealizadas={ventasrealizadas}
+            setventasrealizadas={setventasrealizadas}
+          />
+        </Route>
+
         <Route path="/VentasRealizadas" exact>
-          <VentasRealizadas ventasrealizadas={ventasrealizadas} setventasrealizadas={setventasrealizadas} />
+          <VentasRealizadas
+            ventasrealizadas={ventasrealizadas}
+            setventasrealizadas={setventasrealizadas}
+          />
         </Route>
 
         <Route path="/GestorProductos" exact>
-          <GestorProductos/>
+          <GestorProductos />
         </Route>
 
         <Route path="/ProductosDisponibles" exact>
-          <ProductosDisponibles/>
+          <ProductosDisponibles />
         </Route>
 
         <Route path="/Usuarios" exact>
-          <Usuarios/>
+          <Usuarios />
         </Route>
 
         <Route path="/TablaGestorUsuario" exact>
-          <TablaGestorUsuario/>
+          <TablaGestorUsuario />
         </Route>
 
         <Route path="/CrearUsuario" exact>
-          <CrearUsuario/>
+          <CrearUsuario />
         </Route>
-        
-       
+
         <Redirect to="/" />
       </Switch>
     </Router>
