@@ -1,13 +1,8 @@
-import Zapatos1 from "../components/Zapatos"
+import Zapatos1 from "../components/Zapatos";
 import { Container, Row, Col } from "react-bootstrap";
 
-
-
-
-
 const TablaProductos = () => {
-
-    const Zapatos = [
+  const Zapatos = [
     {
         id : "D&G001",
         marca : "Dolce & Gabbana",
@@ -227,27 +222,17 @@ const TablaProductos = () => {
 ];
 
 
-
-    return(
-        <Container>
-            <Row>
-          {Zapatos.map((zapato) => (
-              <Col xs={4}>
-              <Zapatos1 Zapatos={zapato}/>
-              </Col>
-          ))}
-
-            </Row>
-          </Container>   
-      
-    );
+  return (
+    <Container>
+      <Row>
+        {Zapatos.map((zapato) => (
+          <Col xs={4}>
+            <Zapatos1 Zapatos={zapato} />
+          </Col>
+        ))}
+      </Row>
+    </Container>
+  );
 };
-
-        
-
-
-
-
-
 
 export default TablaProductos;
