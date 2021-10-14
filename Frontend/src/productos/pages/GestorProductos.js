@@ -10,11 +10,11 @@ const GestorProductos= () =>{
             <div class="row">
                 <div class="col">
             <h3 align="left" >Seleccione el producto a gestionar</h3>
-            <img src={Casita} width="500" height="600" alt="Casita" align="left"></img>,
+            <img src={Casita} width="500" height="600" alt="Casita" align="left"></img>
                 </div>
             
                 <div class="col" >
-            <TablaGestorProducto />,
+            <TablaGestorProducto />
                 </div>
 
             
