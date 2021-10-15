@@ -113,7 +113,7 @@ const TablaGestorProducto = () =>{
                     </tr>
                 </tbody>
                 </table>
-            </Container>
+            
 
 
             <ButtonGroup aria-label="Basic example" size="lg" class="text-center">
@@ -121,6 +121,7 @@ const TablaGestorProducto = () =>{
                 <Button variant="danger" >Buscar</Button>
                 <Button variant="danger" >Actualizar</Button>
             </ButtonGroup>
+            </Container>
 
 
 
