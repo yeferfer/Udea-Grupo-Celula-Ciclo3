@@ -5,17 +5,22 @@ import Button from "react-bootstrap/Button";
 
 import { Link } from "react-router-dom";
 //import { Dropdown } from "react-bootstrap";
+import GoogleLogin from 'react-google-login';
 
 const HeaderButtons = ({ isLoggedIn, setLogin, cantCarrito }) => {
-  const login = () => {
+  const login = (res) => {
     setLogin(true);
-    localStorage.setItem("isLogged", true);
+    localStorage.setItem("token", res.tokenId);
+    console.log(res);
   };
 
   const logout = () => {
     setLogin(false);
-    localStorage.setItem("isLogged", false);
+    localStorage.removeItem("token");
   };
+  const loginError =(err)=>{
+    console.log(err);
+  }
 
   if (isLoggedIn) {
     return (
@@ -78,9 +83,18 @@ const HeaderButtons = ({ isLoggedIn, setLogin, cantCarrito }) => {
   } else {
     return (
       <div>
-        <Button variant="danger" onClick={login}>
+        <GoogleLogin
+        clientId="1072646916283-tuqtgn75i6kb0p8u8reg1u75d9n88id3.apps.googleusercontent.com"
+        buttonText="Login"
+        onSuccess={login}
+        onFailure={loginError}
+        cookiePolicy={'single_host_origin'}
+      />,
+
+
+        {/* <Button variant="danger" onClick={login}>
           Login
-        </Button>
+        </Button> */}
       </div>
     );
   }
