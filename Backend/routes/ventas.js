@@ -1,10 +1,12 @@
 var express = require("express");
-const routerV = express.Router();
+const router = express.Router();
 
 const ventasController = require("../controllers/cVentas");
 
-routerV.get("", ventasController.getVentas); /// definimos las rutas para usuarios en este caso
-routerV.post("", ventasController.addVentas);
-routerV.get("/:id", ventasController.getVentaId);
+router.get("", ventasController.getVentas);
+router.post("", ventasController.addVentas);
+router.delete("/:id", ventasController.deleteVentas);
+router.get("/:id", ventasController.getVentaId);
+router.patch("/:id", ventasController.updateVentasById);
 
-module.exports = routerV;
+module.exports = router;

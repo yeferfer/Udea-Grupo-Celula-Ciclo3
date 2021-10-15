@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const ventasrealizadas = mongoose.Schema({
-  Fecha_Venta: { type: Date, required: true },
+  Fecha_Venta: { type: String, required: true },
   Producto: { type: String },
   Referencia: { type: Number, required: true },
   Precio: { type: Number, required: true },

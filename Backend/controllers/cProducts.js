@@ -37,3 +37,35 @@ exports.getProductosDisponibles = (req, res) => {
     res.status(200).json(productoResult);
   });
 };
+
+exports.deleteProduct = (req, res) => {
+  Producto.findById(req.params.id).then((productoResult) => {
+    if (productoResult) {
+      Producto.findByIdAndDelete(
+        { _id: req.params.id },
+        req.body,
+        function (err) {
+          res.status(200).json("Deleted");
+        }
+      );
+    } else {
+      res.status(404).json("No Encontrado");
+    }
+  });
+};
+
+exports.updateProductById = (req, res) => {
+  Producto.findById(req.params.id).then((productoResult) => {
+    if (productoResult) {
+      Producto.findByIdAndUpdate(
+        { _id: req.params.id },
+        req.body,
+        function (err) {
+          res.status(200).json("Update");
+        }
+      );
+    } else {
+      res.status(404).json("No Update");
+    }
+  });
+};
