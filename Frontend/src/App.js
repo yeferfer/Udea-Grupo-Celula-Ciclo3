@@ -12,10 +12,11 @@ import React, { useState } from "react";
 import Home from "./home/pages/Home";
 import Carrito from "./carrito/pages/Carrito";
 import SistemaVentas from "./ventas/pages/SistemaVentas";
-import CrearProducto from "./productos/pages/CrearProducto";
 import VentasRealizadas from "./ventas/pages/VentasRealizadas";
 import Header from "./shared/Header";
+import CrearProducto from "./productos/pages/CrearProducto";
 import GestorProductos from "./productos/pages/GestorProductos";
+import EditarProducto from "./productos/pages/EditarProducto";
 import ProductosDisponibles from "./productos/pages/ProductosDisponibles";
 import Usuarios from "./usuarios/pages/Usuarios";
 import TablaGestorUsuario from "./usuarios/pages/TablaGestorUsuario";
@@ -96,12 +97,28 @@ function App() {
           />
         </Route>
 
+        <Route path="/CrearProducto" exact>
+          <CrearProducto productos={productos} setProductos={setProductos} />
+        </Route>
+
+        <Route path="/Gestion" exact>
+          <GestorProductos productos={productos} setProductos={setProductos} />
+        </Route>
+
+        <Route path="/Gestion/Edit/:productId" exact>
+          <EditarProducto productos={productos} setProductos={setProductos} />
+        </Route>
+
         <Route path="/GestorProductos" exact>
           <GestorProductos />
         </Route>
 
         <Route path="/ProductosDisponibles" exact>
           <ProductosDisponibles />
+        </Route>
+
+        <Route path="/CrearProducto" exact>
+          <CrearProducto productos={productos} setProductos={setProductos} />
         </Route>
 
         <Route path="/Usuarios" exact>
