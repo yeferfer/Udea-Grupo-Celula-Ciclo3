@@ -5,8 +5,9 @@ import Button from "react-bootstrap/Button";
 
 const VentasRealizadas = () => {
 
-    return <div class="container" id="mi_tabla" >
-        <table class="table table-striped table-hover" border="1" >
+    return <div className="container mt-3" id="mi_tabla" >
+        <h1 className="text-center mt-2 mb-2"> Ventas Realizadas</h1>
+        <table className="table table-striped table-hover" border="4" >
             <thead>
                 <tr>
                     <th scope="col">#</th>
@@ -29,6 +30,8 @@ const VentasRealizadas = () => {
                     <td>Otto</td>
                     <td>@mdo</td>
                     <td>@mdo</td>
+                    <td>@mdo</td>
+                    <td>@mdo</td>
                 </tr>
                 <tr>
                     <th scope="row">2</th>
@@ -38,6 +41,8 @@ const VentasRealizadas = () => {
                     <td>Jacob</td>
                     <td>Thornton</td>
                     <td>@fat</td>
+                    <td>@mdo</td>
+                    <td>@mdo</td>
                 </tr>
                 <tr>
                     <th scope="row">3</th>
@@ -47,6 +52,8 @@ const VentasRealizadas = () => {
                     <td>@twitter</td>
                     <td>@twitter</td>
                     <td>@twitter</td>
+                    <td>@mdo</td>
+                    <td>@mdo</td>
                 </tr>
                 <tr>
                     <th scope="row">4</th>
@@ -54,6 +61,8 @@ const VentasRealizadas = () => {
                     <td>Otto</td>
                     <td>@mdo</td>
                     <td>Otto</td>
+                    <td>@mdo</td>
+                    <td>@mdo</td>
                     <td>@mdo</td>
                     <td>@mdo</td>
                 </tr>
@@ -65,6 +74,8 @@ const VentasRealizadas = () => {
                     <td>Jacob</td>
                     <td>Thornton</td>
                     <td>@fat</td>
+                    <td>@mdo</td>
+                    <td>@mdo</td>
                 </tr>
                 <tr>
                     <th scope="row">6</th>
@@ -74,6 +85,8 @@ const VentasRealizadas = () => {
                     <td>@twitter</td>
                     <td>@twitter</td>
                     <td>@twitter</td>
+                    <td>@mdo</td>
+                    <td>@mdo</td>
                 </tr>
                 <tr>
                     <th scope="row">7</th>
@@ -81,6 +94,8 @@ const VentasRealizadas = () => {
                     <td>Otto</td>
                     <td>@mdo</td>
                     <td>Otto</td>
+                    <td>@mdo</td>
+                    <td>@mdo</td>
                     <td>@mdo</td>
                     <td>@mdo</td>
                 </tr>
@@ -92,6 +107,8 @@ const VentasRealizadas = () => {
                     <td>Jacob</td>
                     <td>Thornton</td>
                     <td>@fat</td>
+                    <td>@mdo</td>
+                    <td>@mdo</td>
                 </tr>
                 <tr>
                     <th scope="row">9</th>
@@ -101,6 +118,8 @@ const VentasRealizadas = () => {
                     <td>@twitter</td>
                     <td>@twitter</td>
                     <td>@twitter</td>
+                    <td>@mdo</td>
+                    <td>@mdo</td>
                 </tr>
                 <tr>
                     <th scope="row">10</th>
@@ -108,6 +127,8 @@ const VentasRealizadas = () => {
                     <td>Otto</td>
                     <td>@mdo</td>
                     <td>Otto</td>
+                    <td>@mdo</td>
+                    <td>@mdo</td>
                     <td>@mdo</td>
                     <td>@mdo</td>
                 </tr>
@@ -119,6 +140,8 @@ const VentasRealizadas = () => {
                     <td>Jacob</td>
                     <td>Thornton</td>
                     <td>@fat</td>
+                    <td>@mdo</td>
+                    <td>@mdo</td>
                 </tr>
                 <tr>
                     <th scope="row">12</th>
@@ -128,6 +151,8 @@ const VentasRealizadas = () => {
                     <td>@twitter</td>
                     <td>@twitter</td>
                     <td>@twitter</td>
+                    <td>@mdo</td>
+                    <td>@mdo</td>
                 </tr>
             </tbody>
         </table>
@@ -135,7 +160,7 @@ const VentasRealizadas = () => {
             Modificar
         </Button>
         {/* <Button type="button" variant="danger" className="float-end"> Buscar </Button> */}
-        <input type="text" class="form-control" variant="danger" className="float-end" Buscar />
+        <input type="text" class="form-control " variant="danger" className="float-end" Buscar />
         <Button type="button" variant="danger" className="float-end"> Buscar </Button>
        
 
