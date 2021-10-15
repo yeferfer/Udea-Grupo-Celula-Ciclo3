@@ -29,4 +29,4 @@ MEMBERS
 SPRINTS
 
 - [x] SPRINT 1
-- [ ] SPRINT 2
+- [x] SPRINT 2
