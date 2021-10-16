@@ -1,4 +1,9 @@
 const callApi = async (url, options = {}) => {
+  options.headers = {
+    "Content-Type": "application/json",
+    Accept: "application/json",
+  };
+
   const response = await fetch("http://localhost:3002/api" + url, options);
   const data = await response.json();
   return data;
@@ -15,35 +20,24 @@ const api = {
         body: JSON.stringify(producto),
       });
     },
-  },
-
-  ventas: {
-    list() {
-      return callApi("/ventas");
-    },
-    crete(ventas) {
-      return callApi("/ventas", {
-        method: "POST",
-        body: JSON.stringify(ventas),
+    delete(id) {
+      return callApi(`/products/${id}`, {
+        method: "DELETE",
       });
     },
-  },
-
-  usuarios: {
-    list() {
-      return callApi("/usuarios");
-    },
-    create(usuarios) {
-      return callApi("/usuarios", {
-        method: "POST",
-        body: JSON.stringify(usuarios),
+    edit(producto) {
+      return callApi(`/products/${producto._id}`, {
+        method: "PUT",
+        body: JSON.stringify(producto),
       });
     },
+    getProduct(id) {
+      return callApi(`/products/${id}`);
+    },
   },
-
   categorias: {
     list() {
-      return callApi("/categorias");
+      return callApi("/categoria");
     },
   },
 };

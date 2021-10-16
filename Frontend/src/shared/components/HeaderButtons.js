@@ -1,11 +1,8 @@
 import React from "react";
-
 import Button from "react-bootstrap/Button";
-//import Badge from "react-bootstrap/Badge";
-
+import Badge from "react-bootstrap/Badge";
+import GoogleLogin from "react-google-login";
 import { Link } from "react-router-dom";
-//import { Dropdown } from "react-bootstrap";
-import GoogleLogin from 'react-google-login';
 
 const HeaderButtons = ({ isLoggedIn, setLogin, cantCarrito }) => {
   const login = (res) => {
@@ -18,9 +15,10 @@ const HeaderButtons = ({ isLoggedIn, setLogin, cantCarrito }) => {
     setLogin(false);
     localStorage.removeItem("token");
   };
-  const loginError =(err)=>{
+
+  const loginError = (err) => {
     console.log(err);
-  }
+  };
 
   if (isLoggedIn) {
     return (
@@ -55,7 +53,7 @@ const HeaderButtons = ({ isLoggedIn, setLogin, cantCarrito }) => {
           </Button>
         </Link>
 
-        <Link to="/GestorProductos">
+        <Link to="/Gestion">
           <Button variant="danger" className="me-3">
             Gestor Productos
           </Button>
@@ -90,14 +88,13 @@ const HeaderButtons = ({ isLoggedIn, setLogin, cantCarrito }) => {
     return (
       <div>
         <GoogleLogin
-        clientId="1072646916283-tuqtgn75i6kb0p8u8reg1u75d9n88id3.apps.googleusercontent.com"
-        buttonText="Login"
-        onSuccess={login}
-        onFailure={loginError}
-        cookiePolicy={'single_host_origin'}
-      />,
-
-
+          clientId="1072646916283-tuqtgn75i6kb0p8u8reg1u75d9n88id3.apps.googleusercontent.com"
+          buttonText="Login"
+          onSuccess={login}
+          onFailure={loginError}
+          cookiePolicy={"single_host_origin"}
+        />
+        ,
         {/* <Button variant="danger" onClick={login}>
           Login
         </Button> */}

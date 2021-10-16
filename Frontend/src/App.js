@@ -15,7 +15,7 @@ import SistemaVentas from "./ventas/pages/SistemaVentas";
 import VentasRealizadas from "./ventas/pages/VentasRealizadas";
 import Header from "./shared/Header";
 import CrearProducto from "./productos/pages/CrearProducto";
-import GestorProductos from "./productos/pages/GestorProductos";
+import GestorProductos from "./productos/pages/Gestion";
 import EditarProducto from "./productos/pages/EditarProducto";
 import ProductosDisponibles from "./productos/pages/ProductosDisponibles";
 import Usuarios from "./usuarios/pages/Usuarios";
@@ -37,6 +37,16 @@ function App() {
       setProductos(response);
     };
     fetchData();
+  }, []);
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+
+    if (token === null) {
+      setLogged(false);
+    } else {
+      setLogged(true);
+    }
   }, []);
 
   return (
@@ -67,6 +77,14 @@ function App() {
           <CrearProducto productos={productos} setProductos={setProductos} />
         </Route>
 
+        <Route path="/Gestion" exact>
+          <GestorProductos productos={productos} setProductos={setProductos} />
+        </Route>
+
+        <Route path="/Gestion/Edit/:productId" exact>
+          <EditarProducto productos={productos} setProductos={setProductos} />
+        </Route>
+
         <Route path="/" exact>
           <Home
             isLoggedIn={logged}
@@ -95,22 +113,6 @@ function App() {
             ventasrealizadas={ventasrealizadas}
             setventasrealizadas={setventasrealizadas}
           />
-        </Route>
-
-        <Route path="/CrearProducto" exact>
-          <CrearProducto productos={productos} setProductos={setProductos} />
-        </Route>
-
-        <Route path="/Gestion" exact>
-          <GestorProductos productos={productos} setProductos={setProductos} />
-        </Route>
-
-        <Route path="/Gestion/Edit/:productId" exact>
-          <EditarProducto productos={productos} setProductos={setProductos} />
-        </Route>
-
-        <Route path="/GestorProductos" exact>
-          <GestorProductos />
         </Route>
 
         <Route path="/ProductosDisponibles" exact>
