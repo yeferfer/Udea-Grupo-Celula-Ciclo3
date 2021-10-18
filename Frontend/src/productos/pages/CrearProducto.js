@@ -7,7 +7,10 @@ import ProductForm from "../components/ProductForm";
 
 const CrearProducto = ({ productos, setProductos }) => {
   const history = useHistory();
-  const [categorias, setCategorias] = useState([]);
+  const categorias = [
+    { id: 1, nombre: "Deportivo" },
+    { id: 2, nombre: "Hombre" },
+  ];
   const [error, setError] = useState();
   const [success, setSuccess] = useState();
 
@@ -19,15 +22,6 @@ const CrearProducto = ({ productos, setProductos }) => {
     categoria: "",
     disponible: true,
   });
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await api.categorias.list();
-      setCategorias(response);
-    };
-
-    fetchData();
-  }, []);
 
   const handleChange = (event) => {
     setNewProduct({ ...newProduct, [event.target.name]: event.target.value });

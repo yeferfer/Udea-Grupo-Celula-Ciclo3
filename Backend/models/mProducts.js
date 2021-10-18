@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 var uniqueValidator = require("mongoose-unique-validator");
 
 const producto = mongoose.Schema({
-  title: { type: String, required: true, unique: true },
+  title: { type: String, required: true },
   description: { type: String },
   price: { type: Number, required: true },
   url: { type: String, required: true },
