@@ -20,7 +20,7 @@ const CrearProducto = ({ productos, setProductos }) => {
     price: 0,
     url: "",
     categoria: "",
-    disponible: true,
+    disponible: false,
   });
 
   const handleChange = (event) => {
