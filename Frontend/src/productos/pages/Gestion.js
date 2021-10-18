@@ -42,7 +42,7 @@ const Gestion = ({ productos, setProductos }) => {
                       alt={producto.nombre}
                     />
                   </td>
-                  <td>{producto.categoria.nombre}</td>
+                  <td>{producto.categoria}</td>
                   <td>
                     <input
                       type="checkbox"
