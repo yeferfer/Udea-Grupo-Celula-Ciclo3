@@ -20,8 +20,8 @@ const api = {
         body: JSON.stringify(producto),
       });
     },
-    delete(id) {
-      return callApi(`/products/${id}`, {
+    delete(producto) {
+      return callApi(`/products/${producto._id}`, {
         method: "DELETE",
       });
     },
@@ -33,11 +33,6 @@ const api = {
     },
     getProduct(id) {
       return callApi(`/products/${id}`);
-    },
-  },
-  categorias: {
-    list() {
-      return callApi("/categoria");
     },
   },
 };
