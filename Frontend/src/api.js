@@ -27,7 +27,7 @@ const api = {
     },
     edit(producto) {
       return callApi(`/products/${producto._id}`, {
-        method: "PUT",
+        method: "PATCH",
         body: JSON.stringify(producto),
       });
     },
