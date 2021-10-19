@@ -40,25 +40,51 @@ const api = {
     list() {
       return callApi("/ventas");
     },
-    create(venta) {
+    create(ventas) {
       return callApi("/ventas", {
         method: "POST",
-        body: JSON.stringify(venta),
+        body: JSON.stringify(ventas),
       });
     },
-    delete(venta) {
-      return callApi(`/ventas/${venta._id}`, {
+    delete(ventas) {
+      return callApi(`/ventas/${ventas._id}`, {
         method: "DELETE",
       });
     },
-    edit(venta) {
-      return callApi(`/ventas/${venta._id}`, {
+    edit(ventas) {
+      return callApi(`/ventas/${ventas._id}`, {
         method: "PATCH",
-        body: JSON.stringify(venta),
+        body: JSON.stringify(ventas),
       });
     },
     getVentas(id) {
       return callApi(`/ventas/${id}`);
+    },
+  },
+
+  usuarios: {
+    list() {
+      return callApi("/usuarios");
+    },
+    create(usuarios) {
+      return callApi("/usuarios", {
+        method: "POST",
+        body: JSON.stringify(usuarios),
+      });
+    },
+    delete(usuarios) {
+      return callApi(`/usuarios/${usuarios._id}`, {
+        method: "DELETE",
+      });
+    },
+    edit(usuarios) {
+      return callApi(`/usuarios/${usuarios._id}`, {
+        method: "PATCH",
+        body: JSON.stringify(usuarios),
+      });
+    },
+    getProduct(id) {
+      return callApi(`/usuarios/${id}`);
     },
   },
 };

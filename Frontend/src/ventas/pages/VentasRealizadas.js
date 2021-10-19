@@ -43,7 +43,7 @@ const VentasRealizadas = ({ ventas, setVentas }) => {
                   <td>{venta.Vendedor}</td>
                   <td>{venta.Categoria}</td>
                   <td>
-                    <Link to={`/Gestion/Edit/${venta._id}`}>
+                    <Link to={`/VentasRealizadas/Edit/${venta._id}`}>
                       <Button variant="warning">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"

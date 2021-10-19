@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { useParams, useHistory } from "react-router-dom";
 import { Container, Row, Col, Alert } from "react-bootstrap";
 import api from "../../api";
-import { useHistory } from "react-router-dom";
-import VentaForm from "../components/VentasForm";
+import VentasForm from "../components/VentasForm";
 
-const SistemaVentas = ({ ventas, setVentas }) => {
+const EditarVenta = ({ ventas, setVentas }) => {
   const history = useHistory();
   const categorias = [
     { id: 1, nombre: "Moderno" },
@@ -16,17 +16,9 @@ const SistemaVentas = ({ ventas, setVentas }) => {
     { id: 7, nombre: "Casual" },
     { id: 8, nombre: "Juvenil" },
   ];
-
-  const vendedores = [
-    { id: 100, nombre: "Andrea" },
-    { id: 200, nombre: "Camila" },
-    { id: 300, nombre: "Edison" },
-    { id: 400, nombre: "Jairo" },
-    { id: 500, nombre: "Yefferson" },
-  ];
-
   const [error, setError] = useState();
   const [success, setSuccess] = useState();
+  const { ventasId } = useParams();
 
   const [newVenta, setNewVenta] = useState({
     Fecha_Venta: "",
@@ -39,33 +31,43 @@ const SistemaVentas = ({ ventas, setVentas }) => {
     Categoria: "",
   });
 
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await api.ventas.getVentas(ventasId);
+      setNewVenta(response);
+    };
+
+    fetchData();
+  }, [ventasId]);
+
   const handleChange = (event) => {
     setNewVenta({ ...newVenta, [event.target.name]: event.target.value });
   };
 
   const handleClick = async () => {
-    const apiResponse = await api.ventas.create(newVenta);
+    const apiResponse = await api.ventas.edit(newVenta);
     if (apiResponse.err) {
       setError(apiResponse.err.message);
       console.log(apiResponse.err);
     } else {
       setSuccess(apiResponse);
       setVentas([...ventas, newVenta]);
+      history.push("/SistemaVentas");
     }
   };
+
   return (
     <React.Fragment>
-      <h1 className="text-center mt-5 mb-5">Relizar Venta</h1>
+      <h1 className="text-center mt-5 mb-5">Editar Venta</h1>
       <Container>
         <Row className="d-flex justify-content-center align-items-center">
           <Col xs={8}>
             {error && <Alert variant="danger">{error}</Alert>}
             {success && <Alert variant="success">{success}</Alert>}
-            <VentaForm
+            <VentasForm
               handleChange={handleChange}
               handleClick={handleClick}
               categorias={categorias}
-              vendedores={vendedores}
               formValue={newVenta}
             />
           </Col>
@@ -75,4 +77,4 @@ const SistemaVentas = ({ ventas, setVentas }) => {
   );
 };
 
-export default SistemaVentas;
+export default EditarVenta;

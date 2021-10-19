@@ -18,6 +18,7 @@ import EditarProducto from "./productos/pages/EditarProducto";
 import ProductosDisponibles from "./productos/pages/ProductosDisponibles";
 import SistemaVentas from "./ventas/pages/SistemaVentas";
 import VentasRealizadas from "./ventas/pages/VentasRealizadas";
+import EditarVenta from "./ventas/pages/EditarVenta";
 import Usuarios from "./usuarios/pages/Usuarios";
 import TablaGestorUsuario from "./usuarios/pages/TablaGestorUsuario";
 import CrearUsuario from "./usuarios/pages/CrearUsuario";
@@ -29,11 +30,16 @@ function App() {
   const [carrito, setCarrito] = useState([]);
   const [productos, setProductos] = useState([]);
   const [ventas, setVentas] = useState([]);
+  const [usuario, setUsuario] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await api.products.list();
-      setProductos(response);
+      const responseProducts = await api.products.list();
+      const responseVentas = await api.ventas.list();
+      const responseUsuarios = await api.usuarios.list();
+      setProductos(responseProducts);
+      setVentas(responseVentas);
+      setUsuario(responseUsuarios);
     };
     fetchData();
   }, []);
@@ -66,6 +72,7 @@ function App() {
             setCarrito={setCarrito}
             productos={productos}
             ventas={ventas}
+            usuario={usuario}
           />
         </Route>
 
@@ -94,7 +101,7 @@ function App() {
         </Route>
 
         <Route path="/VentasRealizadas/Edit/:ventasId" exact>
-          <VentasRealizadas ventas={ventas} setVentas={setVentas} />
+          <EditarVenta ventas={ventas} setVentas={setVentas} />
         </Route>
 
         <Route path="/ProductosDisponibles" exact>
@@ -102,15 +109,15 @@ function App() {
         </Route>
 
         <Route path="/Usuarios" exact>
-          <Usuarios />
+          <Usuarios usuario={usuario} serUsuario={usuario} />
         </Route>
 
         <Route path="/TablaGestorUsuario" exact>
-          <TablaGestorUsuario />
+          <TablaGestorUsuario usuario={usuario} serUsuario={usuario} />
         </Route>
 
         <Route path="/CrearUsuario" exact>
-          <CrearUsuario />
+          <CrearUsuario usuario={usuario} serUsuario={setUsuario} />
         </Route>
 
         <Redirect to="/" />

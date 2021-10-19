@@ -1,18 +1,14 @@
 import React, { useState, useEffect } from "react";
+import { useParams, useHistory } from "react-router-dom";
 import { Container, Row, Col, Alert } from "react-bootstrap";
 import api from "../../api";
-import { useHistory } from "react-router-dom";
 import UsuariosForm from "../components/UsuariosForm";
 
-const CrearUsuario = ({ usuarios, setUsuarios }) => {
-  const rol = [
-    { id: 1, nombre: "Sin registrar" },
-    { id: 2, nombre: "Vendedor" },
-    { id: 3, nombre: "Administrador" },
-  ];
-
+const EditarUsuario = ({ ventas, setUsuario }) => {
+  const history = useHistory();
   const [error, setError] = useState();
   const [success, setSuccess] = useState();
+  const { usuarioId } = useParams();
 
   const [newUsuario, setNewUsuario] = useState({
     Documento: 0,
@@ -23,25 +19,34 @@ const CrearUsuario = ({ usuarios, setUsuarios }) => {
     Rol: "",
   });
 
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await api.ventas.getVenta(usuarioId);
+      setNewUsuario(response);
+    };
+
+    fetchData();
+  }, [usuarioId]);
+
   const handleChange = (event) => {
     setNewUsuario({ ...newUsuario, [event.target.name]: event.target.value });
   };
 
   const handleClick = async () => {
-    const apiResponse = await api.usuarios.create(newUsuario);
+    const apiResponse = await api.ventas.edit(newUsuario);
     if (apiResponse.err) {
       setError(apiResponse.err.message);
       console.log(apiResponse.err);
     } else {
       setSuccess(apiResponse);
-      setUsuarios([...usuarios, newUsuario]);
-      //history.push("/");
+      setUsuario([...ventas, newUsuario]);
+      history.push("/TablaGestorUsuario");
     }
   };
 
   return (
     <React.Fragment>
-      <h1 className="text-center mt-5 mb-5">Asignacion de Usuarios</h1>
+      <h1 className="text-center mt-5 mb-5">Editar Usuario</h1>
       <Container>
         <Row className="d-flex justify-content-center align-items-center">
           <Col xs={6}>
@@ -59,4 +64,4 @@ const CrearUsuario = ({ usuarios, setUsuarios }) => {
   );
 };
 
-export default CrearUsuario;
+export default EditarUsuario;

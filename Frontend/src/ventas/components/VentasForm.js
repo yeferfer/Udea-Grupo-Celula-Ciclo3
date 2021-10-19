@@ -48,7 +48,7 @@ const VentasForm = ({ handleChange, handleClick, categorias, formValue }) => {
         <Form.Label>Descripción</Form.Label>
         <Form.Control
           as="textarea"
-          name="Description"
+          name="Descripcion"
           style={{ height: "50px" }}
           onChange={handleChange}
           value={formValue.Description}
@@ -106,6 +106,7 @@ const VentasForm = ({ handleChange, handleClick, categorias, formValue }) => {
       <Button type="button" variant="outline-secondary">
         Cancelar
       </Button>
+
       <Button
         onClick={handleClick}
         type="button"
