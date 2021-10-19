@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
+var uniqueValidator = require("mongoose-unique-validator");
 
-const asignacionUsuario = mongoose.Schema({
+const usuario = mongoose.Schema({
   Documento: { type: Number, required: true },
   NombreApellido: { type: String, required: true },
   Telefono: { type: Number },
@@ -9,4 +10,6 @@ const asignacionUsuario = mongoose.Schema({
   Rol: { type: String, required: true },
 });
 
-module.exports = mongoose.model("AsignacionUsuario", asignacionUsuario);
+usuario.plugin(uniqueValidator);
+
+module.exports = mongoose.model("Usuario", usuario);

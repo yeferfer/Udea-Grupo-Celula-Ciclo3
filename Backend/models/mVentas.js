@@ -1,7 +1,8 @@
 const mongoose = require("mongoose");
+var uniqueValidator = require("mongoose-unique-validator");
 
-const ventasrealizadas = mongoose.Schema({
-  Fecha_Venta: { type: String, required: true },
+const venta = mongoose.Schema({
+  Fecha_Venta: { type: String },
   Producto: { type: String },
   Referencia: { type: Number, required: true },
   Precio: { type: Number, required: true },
@@ -11,4 +12,6 @@ const ventasrealizadas = mongoose.Schema({
   Categoria: { type: String, required: true },
 });
 
-module.exports = mongoose.model("ventasRealizadas", ventasrealizadas);
+venta.plugin(uniqueValidator);
+
+module.exports = mongoose.model("Venta", venta);

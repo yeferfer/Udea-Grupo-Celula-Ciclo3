@@ -35,6 +35,32 @@ const api = {
       return callApi(`/products/${id}`);
     },
   },
+
+  ventas: {
+    list() {
+      return callApi("/ventas");
+    },
+    create(venta) {
+      return callApi("/ventas", {
+        method: "POST",
+        body: JSON.stringify(venta),
+      });
+    },
+    delete(venta) {
+      return callApi(`/ventas/${venta._id}`, {
+        method: "DELETE",
+      });
+    },
+    edit(venta) {
+      return callApi(`/ventas/${venta._id}`, {
+        method: "PATCH",
+        body: JSON.stringify(venta),
+      });
+    },
+    getVentas(id) {
+      return callApi(`/ventas/${id}`);
+    },
+  },
 };
 
 export default api;
