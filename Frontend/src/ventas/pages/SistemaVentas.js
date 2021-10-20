@@ -50,7 +50,6 @@ const SistemaVentas = ({ ventas, setVentas }) => {
       console.log(apiResponse.err);
     } else {
       setSuccess(apiResponse);
-      setVentas([...ventas, newVenta]);
     }
   };
   return (

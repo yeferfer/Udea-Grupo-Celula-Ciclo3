@@ -87,6 +87,14 @@ const api = {
       return callApi(`/usuarios/${id}`);
     },
   },
+  user: {
+    getUser() {
+      return callApi("/user");
+    },
+    validarAdmin() {
+      return callApi("/user/validarAdmin");
+    },
+  },
 };
 
 export default api;

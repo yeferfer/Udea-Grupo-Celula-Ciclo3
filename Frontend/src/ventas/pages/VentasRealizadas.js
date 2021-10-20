@@ -1,14 +1,17 @@
+import React, { useState, useEffect } from "react";
 import { Container, Table, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import api from "../../api";
 import "./Gestion.css";
 
 const VentasRealizadas = ({ ventas, setVentas }) => {
+  const [error, setError] = useState();
+  const [success, setSuccess] = useState();
+
   const deleteVentas = (event) => {
     const id = event.target.id;
     api.ventas.delete(id);
-    console.log(ventas);
-    const newVentas = ventas.filter((venta) => venta._id !== id);
+    const newVentas = ventas.filter((ventas) => ventas._id !== id);
     setVentas([...newVentas]);
   };
 
