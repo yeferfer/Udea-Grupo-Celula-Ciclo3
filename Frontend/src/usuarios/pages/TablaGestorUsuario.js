@@ -3,12 +3,12 @@ import { Link } from "react-router-dom";
 import api from "../../api";
 import "./Gestion.css";
 
-const TablaGestorUsuario = ({ usuarios, setUsuarios }) => {
+const TablaGestorUsuario = ({ usuarios, setNewUsuario }) => {
   const deleteUsuarios = (event) => {
     const id = event.target.id;
     api.usuarios.delete(id);
-    const newUsuarios = usuarios.filter((usuarios) => usuarios._id !== id);
-    setUsuarios([...newUsuarios]);
+    const newUsuario = usuarios.filter((usuarios) => usuarios._id !== id);
+    setNewUsuario([...newUsuario]);
   };
 
   return (

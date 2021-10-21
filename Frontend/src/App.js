@@ -93,15 +93,15 @@ function App() {
         </Route>
 
         <Route path="/SistemaVentas" exact>
-          <SistemaVentas ventas={ventas} setsistemaVentas={setVentas} />
+          <SistemaVentas ventas={ventas} setNewVenta={setVentas} />
         </Route>
 
         <Route path="/VentasRealizadas" exact>
-          <VentasRealizadas ventas={ventas} setsistemaVentas={setVentas} />
+          <VentasRealizadas ventas={ventas} setNewVenta={setVentas} />
         </Route>
 
         <Route path="/VentasRealizadas/Edit/:ventasId" exact>
-          <EditarVenta ventas={ventas} setVentas={setVentas} />
+          <EditarVenta ventas={ventas} setNewVenta={setVentas} />
         </Route>
 
         <Route path="/ProductosDisponibles" exact>
@@ -109,19 +109,19 @@ function App() {
         </Route>
 
         <Route path="/Usuarios" exact>
-          <CrearUsuario usuarios={usuarios} setUsuarios={setUsuarios} />
+          <CrearUsuario usuarios={usuarios} setNewUsuario={setUsuarios} />
         </Route>
 
         <Route path="/CrearUsuario" exact>
-          <CrearUsuario usuarios={usuarios} setUsuarios={setUsuarios} />
+          <CrearUsuario usuarios={usuarios} setNewUsuario={setUsuarios} />
         </Route>
 
         <Route path="/TablaGestorUsuario" exact>
-          <TablaGestorUsuario usuarios={usuarios} setUsuarios={usuarios} />
+          <TablaGestorUsuario usuarios={usuarios} setNewUsuario={setUsuarios} />
         </Route>
 
         <Route path="/TablaGestorUsuario/Edit/:usuariosId" exact>
-          <EditarUsuario usuario={usuarios} setUsuarios={setUsuarios} />
+          <EditarUsuario usuario={usuarios} setNewUsuario={setUsuarios} />
         </Route>
 
         <Redirect to="/" />

@@ -51,7 +51,7 @@ const EditarVenta = ({ ventas, setVentas }) => {
       console.log(apiResponse.err);
     } else {
       setSuccess(apiResponse);
-      setVentas([...ventas, newVenta]);
+      setNewVenta([...ventas, newVenta]);
       history.push("/SistemaVentas");
     }
   };

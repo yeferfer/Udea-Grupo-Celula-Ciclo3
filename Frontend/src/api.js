@@ -21,7 +21,7 @@ const api = {
       });
     },
     delete(producto) {
-      return callApi(`/products/${producto._id}`, {
+      return callApi(`/products/${producto}`, {
         method: "DELETE",
       });
     },
@@ -47,7 +47,7 @@ const api = {
       });
     },
     delete(ventas) {
-      return callApi(`/ventas/${ventas._id}`, {
+      return callApi(`/ventas/${ventas}`, {
         method: "DELETE",
       });
     },
@@ -73,12 +73,12 @@ const api = {
       });
     },
     delete(usuarios) {
-      return callApi(`/usuarios/${usuarios._id}`, {
+      return callApi(`/usuarios/${usuarios}`, {
         method: "DELETE",
       });
     },
     edit(usuarios) {
-      return callApi(`/usuarios/${usuarios._id}`, {
+      return callApi(`/usuarios/${usuarios}`, {
         method: "PATCH",
         body: JSON.stringify(usuarios),
       });

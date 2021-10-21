@@ -4,15 +4,12 @@ import { Link } from "react-router-dom";
 import api from "../../api";
 import "./Gestion.css";
 
-const VentasRealizadas = ({ ventas, setVentas }) => {
-  const [error, setError] = useState();
-  const [success, setSuccess] = useState();
-
+const VentasRealizadas = ({ ventas, setNewVenta }) => {
   const deleteVentas = (event) => {
     const id = event.target.id;
     api.ventas.delete(id);
     const newVentas = ventas.filter((ventas) => ventas._id !== id);
-    setVentas([...newVentas]);
+    setNewVenta([...newVentas]);
   };
 
   return (

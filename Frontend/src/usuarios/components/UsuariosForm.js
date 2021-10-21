@@ -67,6 +67,7 @@ const UsuariosForm = ({ handleChange, handleClick, formValue }) => {
       <Button type="button" variant="outline-secondary">
         Cancelar
       </Button>
+
       <Button
         onClick={handleClick}
         type="button"

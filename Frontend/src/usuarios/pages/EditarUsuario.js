@@ -4,7 +4,7 @@ import { Container, Row, Col, Alert } from "react-bootstrap";
 import api from "../../api";
 import UsuariosForm from "../components/UsuariosForm";
 
-const EditarUsuario = ({ usuarios, setUsuario }) => {
+const EditarUsuario = ({ usuarios, setUsuarios }) => {
   const history = useHistory();
   const [error, setError] = useState();
   const [success, setSuccess] = useState();
@@ -39,7 +39,7 @@ const EditarUsuario = ({ usuarios, setUsuario }) => {
       console.log(apiResponse.err);
     } else {
       setSuccess(apiResponse);
-      setUsuario([...usuarios, newUsuario]);
+      setNewUsuario([...usuarios, newUsuario]);
       history.push("/TablaGestorUsuario");
     }
   };
