@@ -17,7 +17,7 @@ const VentasRealizadas = ({ ventas, setVentas }) => {
 
   return (
     <div>
-      <h1 className="text-center mt-5 mb-5">Gestión de Ventas</h1>
+      <h1 className="text-center mt-5 mb-11">Gestión de Ventas</h1>
       <Container>
         <Table striped bordered hover>
           <thead>
@@ -30,7 +30,7 @@ const VentasRealizadas = ({ ventas, setVentas }) => {
               <th>Sucursal</th>
               <th>Vendedor</th>
               <th>Categoria</th>
-              <th>Acción</th>
+              <th>Editar/Borrar</th>
             </tr>
           </thead>
           <tbody>

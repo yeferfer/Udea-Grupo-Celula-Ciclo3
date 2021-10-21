@@ -54,7 +54,7 @@ const SistemaVentas = ({ ventas, setVentas }) => {
   };
   return (
     <React.Fragment>
-      <h1 className="text-center mt-5 mb-5">Relizar Venta</h1>
+      <h1 className="text-center mt-5 mb-5">Realizar Venta</h1>
       <Container>
         <Row className="d-flex justify-content-center align-items-center">
           <Col xs={8}>
