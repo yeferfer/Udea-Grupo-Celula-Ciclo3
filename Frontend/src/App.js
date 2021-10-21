@@ -1,4 +1,3 @@
-//import logo from "./logo.svg";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import {
@@ -30,7 +29,7 @@ function App() {
   const [carrito, setCarrito] = useState([]);
   const [productos, setProductos] = useState([]);
   const [ventas, setVentas] = useState([]);
-  const [usuario, setUsuario] = useState([]);
+  const [usuarios, setUsuarios] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -39,7 +38,7 @@ function App() {
       const responseUsuarios = await api.usuarios.list();
       setProductos(responseProducts);
       setVentas(responseVentas);
-      setUsuario(responseUsuarios);
+      setUsuarios(responseUsuarios);
     };
     fetchData();
   }, []);
@@ -72,7 +71,7 @@ function App() {
             setCarrito={setCarrito}
             productos={productos}
             ventas={ventas}
-            usuario={usuario}
+            usuarios={usuarios}
           />
         </Route>
 
@@ -109,15 +108,19 @@ function App() {
         </Route>
 
         <Route path="/Usuarios" exact>
-          <Usuarios usuario={usuario} serUsuario={usuario} />
-        </Route>
-
-        <Route path="/TablaGestorUsuario" exact>
-          <TablaGestorUsuario usuario={usuario} serUsuario={usuario} />
+          <CrearUsuario usuarios={usuarios} setUsuarios={setUsuarios} />
         </Route>
 
         <Route path="/CrearUsuario" exact>
-          <CrearUsuario usuario={usuario} serUsuario={setUsuario} />
+          <CrearUsuario usuarios={usuarios} setUsuarios={setUsuarios} />
+        </Route>
+
+        <Route path="/TablaGestorUsuario" exact>
+          <TablaGestorUsuario usuarios={usuarios} setUsuarios={usuarios} />
+        </Route>
+
+        <Route path="/EditarUsuario" exact>
+          EditarUsuario usuarios={usuarios} setUsuarios={usuarios} />
         </Route>
 
         <Redirect to="/" />

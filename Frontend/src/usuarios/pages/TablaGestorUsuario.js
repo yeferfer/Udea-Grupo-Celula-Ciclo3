@@ -4,12 +4,11 @@ import api from "../../api";
 import "./Gestion.css";
 
 const TablaGestorUsuario = ({ usuarios, setUsuarios }) => {
-  const deleteUsuario = (event) => {
+  const deleteUsuarios = (event) => {
     const id = event.target.id;
     api.usuarios.delete(id);
-    console.log(usuarios);
-    const newUsusarios = usuarios.filter((usuario) => usuario._id !== id);
-    setUsuarios([...newUsusarios]);
+    const newUsuarios = usuarios.filter((usuarios) => usuarios._id !== id);
+    setUsuarios([...newUsuarios]);
   };
 
   return (
@@ -39,7 +38,7 @@ const TablaGestorUsuario = ({ usuarios, setUsuarios }) => {
                   <td>{usuario.Sucursal}</td>
                   <td>{usuario.Rol}</td>
                   <td>
-                    <Link to={`/Gestion/Edit/${usuario._id}`}>
+                    <Link to={`/TablaGestorUsuario/Edit/${usuario._id}`}>
                       <Button variant="warning">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -56,7 +55,7 @@ const TablaGestorUsuario = ({ usuarios, setUsuarios }) => {
 
                     <Button
                       variant="danger"
-                      onClick={deleteUsuario}
+                      onClick={deleteUsuarios}
                       id={usuario._id}
                       className="ms-2"
                     >

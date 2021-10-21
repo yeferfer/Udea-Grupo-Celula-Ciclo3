@@ -34,7 +34,6 @@ const CrearUsuario = ({ usuarios, setUsuarios }) => {
       console.log(apiResponse.err);
     } else {
       setSuccess(apiResponse);
-      setUsuarios([...usuarios, newUsuario]);
       //history.push("/");
     }
   };
