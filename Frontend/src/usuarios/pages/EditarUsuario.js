@@ -4,7 +4,7 @@ import { Container, Row, Col, Alert } from "react-bootstrap";
 import api from "../../api";
 import UsuariosForm from "../components/UsuariosForm";
 
-const EditarUsuario = ({ ventas, setUsuario }) => {
+const EditarUsuario = ({ usuarios, setUsuario }) => {
   const history = useHistory();
   const [error, setError] = useState();
   const [success, setSuccess] = useState();
@@ -21,7 +21,7 @@ const EditarUsuario = ({ ventas, setUsuario }) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await api.ventas.getVenta(usuarioId);
+      const response = await api.usuarios.getUsuarios(usuarioId);
       setNewUsuario(response);
     };
 
@@ -33,13 +33,13 @@ const EditarUsuario = ({ ventas, setUsuario }) => {
   };
 
   const handleClick = async () => {
-    const apiResponse = await api.ventas.edit(newUsuario);
+    const apiResponse = await api.usuarios.edit(newUsuario);
     if (apiResponse.err) {
       setError(apiResponse.err.message);
       console.log(apiResponse.err);
     } else {
       setSuccess(apiResponse);
-      setUsuario([...ventas, newUsuario]);
+      setUsuario([...usuarios, newUsuario]);
       history.push("/TablaGestorUsuario");
     }
   };

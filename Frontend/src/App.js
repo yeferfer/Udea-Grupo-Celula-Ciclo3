@@ -21,6 +21,7 @@ import EditarVenta from "./ventas/pages/EditarVenta";
 import Usuarios from "./usuarios/pages/Usuarios";
 import TablaGestorUsuario from "./usuarios/pages/TablaGestorUsuario";
 import CrearUsuario from "./usuarios/pages/CrearUsuario";
+import EditarUsuario from "./usuarios/pages/EditarUsuario";
 import api from "./api";
 import { useEffect } from "react";
 
@@ -119,8 +120,8 @@ function App() {
           <TablaGestorUsuario usuarios={usuarios} setUsuarios={usuarios} />
         </Route>
 
-        <Route path="/EditarUsuario" exact>
-          EditarUsuario usuarios={usuarios} setUsuarios={usuarios} />
+        <Route path="/TablaGestorUsuario/Edit/:usuariosId" exact>
+          <EditarUsuario usuario={usuarios} setUsuarios={setUsuarios} />
         </Route>
 
         <Redirect to="/" />

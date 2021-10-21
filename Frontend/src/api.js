@@ -83,7 +83,7 @@ const api = {
         body: JSON.stringify(usuarios),
       });
     },
-    getProduct(id) {
+    getUsuarios(id) {
       return callApi(`/usuarios/${id}`);
     },
   },
