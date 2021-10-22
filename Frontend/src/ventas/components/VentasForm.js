@@ -96,7 +96,7 @@ const VentasForm = ({ handleChange, handleClick, categorias, formValue }) => {
         <Form.Check
           type="checkbox"
           id="default-checkbox"
-          label="Disponible"
+          label="Confirmada"
           name="disponible"
           value={formValue.disponible}
           onChange={handleChange}
