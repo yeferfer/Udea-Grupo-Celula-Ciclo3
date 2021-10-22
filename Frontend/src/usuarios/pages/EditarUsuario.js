@@ -8,7 +8,7 @@ const EditarUsuario = ({ usuarios, setUsuarios }) => {
   const history = useHistory();
   const [error, setError] = useState();
   const [success, setSuccess] = useState();
-  const { usuarioId } = useParams();
+  const { usuariosId } = useParams();
 
   const [newUsuario, setNewUsuario] = useState({
     Documento: 0,
@@ -21,12 +21,12 @@ const EditarUsuario = ({ usuarios, setUsuarios }) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await api.usuarios.getUsuarios(usuarioId);
+      const response = await api.usuarios.getUsuarios(usuariosId);
       setNewUsuario(response);
     };
 
     fetchData();
-  }, [usuarioId]);
+  }, [usuariosId]);
 
   const handleChange = (event) => {
     setNewUsuario({ ...newUsuario, [event.target.name]: event.target.value });

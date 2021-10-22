@@ -33,6 +33,7 @@ const EditarVenta = ({ ventas, setVentas }) => {
 
   useEffect(() => {
     const fetchData = async () => {
+      console.log(ventasId);
       const response = await api.ventas.getVentas(ventasId);
       setNewVenta(response);
     };

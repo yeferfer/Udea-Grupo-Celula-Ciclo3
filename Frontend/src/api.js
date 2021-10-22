@@ -52,7 +52,7 @@ const api = {
       });
     },
     edit(ventas) {
-      return callApi(`/ventas/${ventas._id}`, {
+      return callApi(`/ventas/${ventas}`, {
         method: "PATCH",
         body: JSON.stringify(ventas),
       });

@@ -8,9 +8,9 @@ const VentasForm = ({ handleChange, handleClick, categorias, formValue }) => {
         <Form.Label>Fecha Venta</Form.Label>
         <Form.Control
           type="text"
-          name="Fecha_Ventas"
+          name="Fecha_Venta"
           onChange={handleChange}
-          value={formValue.Fecha_Ventas}
+          value={formValue.Fecha_Venta}
         />
       </Form.Group>
 
@@ -51,7 +51,7 @@ const VentasForm = ({ handleChange, handleClick, categorias, formValue }) => {
           name="Descripcion"
           style={{ height: "50px" }}
           onChange={handleChange}
-          value={formValue.Description}
+          value={formValue.Descripcion}
         />
       </Form.Group>
 
