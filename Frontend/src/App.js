@@ -18,7 +18,6 @@ import ProductosDisponibles from "./productos/pages/ProductosDisponibles";
 import SistemaVentas from "./ventas/pages/SistemaVentas";
 import VentasRealizadas from "./ventas/pages/VentasRealizadas";
 import EditarVenta from "./ventas/pages/EditarVenta";
-import Usuarios from "./usuarios/pages/Usuarios";
 import TablaGestorUsuario from "./usuarios/pages/TablaGestorUsuario";
 import CrearUsuario from "./usuarios/pages/CrearUsuario";
 import EditarUsuario from "./usuarios/pages/EditarUsuario";
@@ -106,10 +105,6 @@ function App() {
 
         <Route path="/ProductosDisponibles" exact>
           <ProductosDisponibles />
-        </Route>
-
-        <Route path="/Usuarios" exact>
-          <CrearUsuario usuarios={usuarios} setNewUsuario={setUsuarios} />
         </Route>
 
         <Route path="/CrearUsuario" exact>

@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Container, Row, Col, Alert } from "react-bootstrap";
 import api from "../../api";
-import { useHistory } from "react-router-dom";
 import UsuariosForm from "../components/UsuariosForm";
 
 const CrearUsuario = ({ usuarios, setUsuarios }) => {
@@ -34,6 +33,7 @@ const CrearUsuario = ({ usuarios, setUsuarios }) => {
       console.log(apiResponse.err);
     } else {
       setSuccess(apiResponse);
+      setNewUsuario([...usuarios, newUsuario]);
       //history.push("/");
     }
   };

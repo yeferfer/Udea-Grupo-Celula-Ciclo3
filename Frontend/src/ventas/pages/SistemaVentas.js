@@ -1,11 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Container, Row, Col, Alert } from "react-bootstrap";
 import api from "../../api";
-import { useHistory } from "react-router-dom";
 import VentaForm from "../components/VentasForm";
 
 const SistemaVentas = ({ ventas, setVentas }) => {
-  const history = useHistory();
   const categorias = [
     { id: 1, nombre: "Moderno" },
     { id: 2, nombre: "Informal" },
@@ -50,6 +48,7 @@ const SistemaVentas = ({ ventas, setVentas }) => {
       console.log(apiResponse.err);
     } else {
       setSuccess(apiResponse);
+      setNewVenta([...ventas, newVenta]);
     }
   };
   return (

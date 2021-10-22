@@ -33,7 +33,6 @@ const EditarVenta = ({ ventas, setVentas }) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      console.log(ventasId);
       const response = await api.ventas.getVentas(ventasId);
       setNewVenta(response);
     };
@@ -53,7 +52,7 @@ const EditarVenta = ({ ventas, setVentas }) => {
     } else {
       setSuccess(apiResponse);
       setNewVenta([...ventas, newVenta]);
-      history.push("/SistemaVentas");
+      history.push("/VentasRealizadas");
     }
   };
 

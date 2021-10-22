@@ -1,6 +1,5 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
-import Badge from "react-bootstrap/Badge";
 import GoogleLogin from "react-google-login";
 import { Link } from "react-router-dom";
 
@@ -49,7 +48,7 @@ const HeaderButtons = ({ isLoggedIn, setLogin, cantCarrito }) => {
 
         <Link to="/VentasRealizadas">
           <Button variant="danger" className="me-3">
-            Gestionar Ventas 
+            Gestionar Ventas
           </Button>
         </Link>
 

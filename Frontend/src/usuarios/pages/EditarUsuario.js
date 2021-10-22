@@ -39,7 +39,6 @@ const EditarUsuario = ({ usuarios, setUsuarios }) => {
       console.log(apiResponse.err);
     } else {
       setSuccess(apiResponse);
-      setNewUsuario([...usuarios, newUsuario]);
       history.push("/TablaGestorUsuario");
     }
   };

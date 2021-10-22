@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from "react";
 import { Container, Table, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import api from "../../api";
@@ -79,17 +78,22 @@ const VentasRealizadas = ({ ventas, setNewVenta }) => {
                         />
                       </svg>
                     </Button>
-
                   </td>
-
                 </tr>
-
               );
-
             })}
           </tbody>
-          <input type="text" class="form-control" variant="danger" className="float-start" Buscar />
-          <Button type="button" variant="danger" className="float-start"> Buscar </Button>
+          <input
+            type="text"
+            class="form-control"
+            variant="danger"
+            className="float-start"
+            Buscar
+          />
+          <Button type="button" variant="danger" className="float-start">
+            {" "}
+            Buscar{" "}
+          </Button>
         </Table>
       </Container>
     </div>
