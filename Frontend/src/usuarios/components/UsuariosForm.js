@@ -64,14 +64,14 @@ const UsuariosForm = ({ handleChange, handleClick, formValue }) => {
         />
       </Form.Group>
 
-      <Button type="button" variant="outline-secondary">
+      <Button type="button" variant="danger">
         Cancelar
       </Button>
 
       <Button
         onClick={handleClick}
         type="button"
-        variant="primary"
+        variant="danger"
         className="float-end"
       >
         Guardar

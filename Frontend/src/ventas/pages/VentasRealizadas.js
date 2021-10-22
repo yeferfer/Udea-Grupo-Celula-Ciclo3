@@ -79,11 +79,17 @@ const VentasRealizadas = ({ ventas, setNewVenta }) => {
                         />
                       </svg>
                     </Button>
+
                   </td>
+
                 </tr>
+
               );
+
             })}
           </tbody>
+          <input type="text" class="form-control" variant="danger" className="float-start" Buscar />
+          <Button type="button" variant="danger" className="float-start"> Buscar </Button>
         </Table>
       </Container>
     </div>

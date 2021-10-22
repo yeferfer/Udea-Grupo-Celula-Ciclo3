@@ -37,7 +37,7 @@ const HeaderButtons = ({ isLoggedIn, setLogin, cantCarrito }) => {
 
         <Link to="/SistemaVentas">
           <Button variant="danger" className="me-3">
-            Ventas
+            Ingresar Ventas
           </Button>
         </Link>
 
@@ -49,25 +49,25 @@ const HeaderButtons = ({ isLoggedIn, setLogin, cantCarrito }) => {
 
         <Link to="/VentasRealizadas">
           <Button variant="danger" className="me-3">
-            Ventas Realizadas
+            Gestionar Ventas 
+          </Button>
+        </Link>
+
+        <Link to="/CrearProducto">
+          <Button variant="danger" className="me-3">
+            Ingresar producto
           </Button>
         </Link>
 
         <Link to="/Gestion">
           <Button variant="danger" className="me-3">
-            Gestor Productos
+            Gestionar Productos
           </Button>
         </Link>
 
         <Link to="/ProductosDisponibles">
           <Button variant="danger" className="me-3">
             Productos
-          </Button>
-        </Link>
-
-        <Link to="/CrearProducto">
-          <Button variant="danger" className="me-3">
-            Crear producto
           </Button>
         </Link>
 
