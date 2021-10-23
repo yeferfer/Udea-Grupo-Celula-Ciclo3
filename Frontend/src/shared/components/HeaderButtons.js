@@ -1,20 +1,22 @@
 import React from "react";
-
 import Button from "react-bootstrap/Button";
-//import Badge from "react-bootstrap/Badge";
-
+import GoogleLogin from "react-google-login";
 import { Link } from "react-router-dom";
-//import { Dropdown } from "react-bootstrap";
 
 const HeaderButtons = ({ isLoggedIn, setLogin, cantCarrito }) => {
-  const login = () => {
+  const login = (res) => {
     setLogin(true);
-    localStorage.setItem("isLogged", true);
+    localStorage.setItem("token", res.tokenId);
+    console.log(res);
   };
 
   const logout = () => {
     setLogin(false);
-    localStorage.setItem("isLogged", false);
+    localStorage.removeItem("token");
+  };
+
+  const loginError = (err) => {
+    console.log(err);
   };
 
   if (isLoggedIn) {
@@ -34,7 +36,7 @@ const HeaderButtons = ({ isLoggedIn, setLogin, cantCarrito }) => {
 
         <Link to="/SistemaVentas">
           <Button variant="danger" className="me-3">
-            Ventas
+            Ingresar Ventas
           </Button>
         </Link>
 
@@ -46,13 +48,19 @@ const HeaderButtons = ({ isLoggedIn, setLogin, cantCarrito }) => {
 
         <Link to="/VentasRealizadas">
           <Button variant="danger" className="me-3">
-            Ventas Realizadas
+            Gestionar Ventas
           </Button>
         </Link>
 
-        <Link to="/GestorProductos">
+        <Link to="/CrearProducto">
           <Button variant="danger" className="me-3">
-            Gestor Productos
+            Ingresar producto
+          </Button>
+        </Link>
+
+        <Link to="/Gestion">
+          <Button variant="danger" className="me-3">
+            Gestionar Productos
           </Button>
         </Link>
 
@@ -62,9 +70,15 @@ const HeaderButtons = ({ isLoggedIn, setLogin, cantCarrito }) => {
           </Button>
         </Link>
 
-        <Link to="/Usuarios">
+        <Link to="/CrearUsuario">
           <Button variant="danger" className="me-3">
-            Usuarios
+            Crear Usuarios
+          </Button>
+        </Link>
+
+        <Link to="/TablaGestorUsuario">
+          <Button variant="danger" className="me-3">
+            Gestion Usuarios
           </Button>
         </Link>
 
@@ -78,9 +92,17 @@ const HeaderButtons = ({ isLoggedIn, setLogin, cantCarrito }) => {
   } else {
     return (
       <div>
-        <Button variant="danger" onClick={login}>
+        <GoogleLogin
+          clientId="1072646916283-tuqtgn75i6kb0p8u8reg1u75d9n88id3.apps.googleusercontent.com"
+          buttonText="Login"
+          onSuccess={login}
+          onFailure={loginError}
+          cookiePolicy={"single_host_origin"}
+        />
+        ,
+        {/* <Button variant="danger" onClick={login}>
           Login
-        </Button>
+        </Button> */}
       </div>
     );
   }

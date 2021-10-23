@@ -6,7 +6,7 @@ import HeaderButtons from "./components/HeaderButtons";
 
 const Header = ({ isLoggedIn, login, cantCarrito }) => {
   return (
-    <Navbar bg="danger"  variant="light">
+    <Navbar bg="danger" variant="light">
       <Container>
         <Navbar.Brand href="/"> </Navbar.Brand>
         <Nav className="justify-content-end">

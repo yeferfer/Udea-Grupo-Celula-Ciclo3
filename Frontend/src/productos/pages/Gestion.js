@@ -3,46 +3,57 @@ import { Link } from "react-router-dom";
 import api from "../../api";
 import "./Gestion.css";
 
-const VentasRealizadas = ({ ventas, setNewVenta }) => {
-  const deleteVentas = (event) => {
+const Gestion = ({ productos, setProductos }) => {
+  const deleteProduct = (event) => {
     const id = event.target.id;
-    api.ventas.delete(id);
-    const newVentas = ventas.filter((ventas) => ventas._id !== id);
-    setNewVenta([...newVentas]);
+    api.products.delete(id);
+    console.log(productos);
+    const newProducts = productos.filter((product) => product._id !== id);
+    setProductos([...newProducts]);
   };
 
   return (
     <div>
-      <h1 className="text-center mt-5 mb-11">Gestión de Ventas</h1>
+      <h1 className="text-center mt-5 mb-5">Gestión de productos</h1>
       <Container>
         <Table striped bordered hover>
           <thead>
             <tr>
-              <th>Fecha Ventas</th>
-              <th>Producto</th>
-              <th>Referncia</th>
+              <th>Nombre</th>
+              <th>Descripción</th>
               <th>Precio</th>
-              <th>Descripcion</th>
-              <th>Sucursal</th>
-              <th>Vendedor</th>
+              <th>Imagen</th>
               <th>Categoria</th>
-              <th>Editar/Borrar</th>
+              <th>Disponible</th>
+              <th>Acción</th>
             </tr>
           </thead>
           <tbody>
-            {ventas.map((venta) => {
+            {productos.map((producto) => {
               return (
-                <tr key={venta._id}>
-                  <td>{venta.Fecha_Venta}</td>
-                  <td>{venta.Producto}</td>
-                  <td>{venta.Referencia}</td>
-                  <td>{venta.Precio}</td>
-                  <td>{venta.Descripcion}</td>
-                  <td>{venta.Sucursal}</td>
-                  <td>{venta.Vendedor}</td>
-                  <td>{venta.Categoria}</td>
+                <tr key={producto._id}>
+                  <td>{producto.title}</td>
+                  <td>{producto.description}</td>
+                  <td>{producto.price}</td>
                   <td>
-                    <Link to={`/VentasRealizadas/Edit/${venta._id}`}>
+                    <img
+                      className="t-img"
+                      src={producto.url}
+                      alt={producto.nombre}
+                    />
+                  </td>
+                  <td>{producto.categoria}</td>
+                  <td>
+                    <input
+                      type="checkbox"
+                      className="custom-control-input"
+                      id="customCheck1"
+                      checked={producto.disponible}
+                      readOnly
+                    />{" "}
+                  </td>
+                  <td>
+                    <Link to={`/Gestion/Edit/${producto._id}`}>
                       <Button variant="warning">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -59,8 +70,8 @@ const VentasRealizadas = ({ ventas, setNewVenta }) => {
 
                     <Button
                       variant="danger"
-                      onClick={deleteVentas}
-                      id={venta._id}
+                      onClick={deleteProduct}
+                      id={producto._id}
                       className="ms-2"
                     >
                       <svg
@@ -83,21 +94,10 @@ const VentasRealizadas = ({ ventas, setNewVenta }) => {
               );
             })}
           </tbody>
-          <input
-            type="text"
-            class="form-control"
-            variant="danger"
-            className="float-start"
-            Buscar
-          />
-          <Button type="button" variant="danger" className="float-start">
-            {" "}
-            Buscar{" "}
-          </Button>
         </Table>
       </Container>
     </div>
   );
 };
 
-export default VentasRealizadas;
+export default Gestion;

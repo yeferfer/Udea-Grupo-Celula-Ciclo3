@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useParams, useHistory } from "react-router-dom";
 import { Container, Row, Col, Alert } from "react-bootstrap";
 import api from "../../api";
-import VentaForm from "../components/VentasForm";
+import ProductForm from "../components/ProductForm";
 
-const SistemaVentas = ({ ventas, setVentas }) => {
+const EditarProducto = ({ productos, setProductos }) => {
+  const history = useHistory();
   const categorias = [
     { id: 1, nombre: "Moderno" },
     { id: 2, nombre: "Informal" },
@@ -14,57 +16,57 @@ const SistemaVentas = ({ ventas, setVentas }) => {
     { id: 7, nombre: "Casual" },
     { id: 8, nombre: "Juvenil" },
   ];
-
-  const vendedores = [
-    { id: 100, nombre: "Andrea" },
-    { id: 200, nombre: "Camila" },
-    { id: 300, nombre: "Edison" },
-    { id: 400, nombre: "Jairo" },
-    { id: 500, nombre: "Yefferson" },
-  ];
-
   const [error, setError] = useState();
   const [success, setSuccess] = useState();
+  const { productId } = useParams();
 
-  const [newVenta, setNewVenta] = useState({
-    Fecha_Venta: "",
-    Producto: "",
-    Referencia: 0,
-    Precio: 0,
-    Descripcion: "",
-    Sucursal: "",
-    Vendedor: "",
-    Categoria: "",
+  const [newProduct, setNewProduct] = useState({
+    title: "",
+    description: "",
+    price: 0,
+    url: "",
+    categoria: "",
+    disponible: false,
   });
 
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await api.products.getProduct(productId);
+      setNewProduct(response);
+    };
+
+    fetchData();
+  }, [productId]);
+
   const handleChange = (event) => {
-    setNewVenta({ ...newVenta, [event.target.name]: event.target.value });
+    setNewProduct({ ...newProduct, [event.target.name]: event.target.value });
   };
 
   const handleClick = async () => {
-    const apiResponse = await api.ventas.create(newVenta);
+    const apiResponse = await api.products.edit(newProduct);
     if (apiResponse.err) {
       setError(apiResponse.err.message);
       console.log(apiResponse.err);
     } else {
       setSuccess(apiResponse);
-      setNewVenta([...ventas, newVenta]);
+      setProductos([...productos, newProduct]);
+      history.push("/Gestion");
     }
   };
+
   return (
     <React.Fragment>
-      <h1 className="text-center mt-5 mb-5">Realizar Venta</h1>
+      <h1 className="text-center mt-5 mb-5">Editar producto</h1>
       <Container>
         <Row className="d-flex justify-content-center align-items-center">
-          <Col xs={8}>
+          <Col xs={6}>
             {error && <Alert variant="danger">{error}</Alert>}
             {success && <Alert variant="success">{success}</Alert>}
-            <VentaForm
+            <ProductForm
               handleChange={handleChange}
               handleClick={handleClick}
               categorias={categorias}
-              vendedores={vendedores}
-              formValue={newVenta}
+              formValue={newProduct}
             />
           </Col>
         </Row>
@@ -73,4 +75,4 @@ const SistemaVentas = ({ ventas, setVentas }) => {
   );
 };
 
-export default SistemaVentas;
+export default EditarProducto;
